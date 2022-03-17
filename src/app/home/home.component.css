@@ -1,0 +1,82 @@
+#simacLogo{
+    width: 73px;
+    height: 92px;
+    margin: 10px;
+}
+.v-line{
+    border-left: solid #ffffff;
+    height:100%;
+    left:48%;
+    position: absolute;
+   }
+.h-100{
+    background-image: url('src/assets/images/bg1.png');
+     background-repeat: no-repeat;
+   }
+.container{
+    background-color: #ffffff;
+    
+}
+.col-lg-6 {
+    flex: auto;
+}
+#div1 {
+    
+    
+    margin-left: 30px;
+}
+#divImg{
+    margin: px;
+}
+#imgEnSavoirPlus{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    
+    
+}
+#imgProcessus{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+#div2{
+    
+    margin-left: 30px;
+    margin-right: 0px;
+   
+}
+
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.w-50{
+    min-height: 100vh;  
+    display: flex;
+    align-items: center;
+}
+
+h1{
+font-size: 45px;
+color: #ffffff;
+
+
+
+}
+a{
+   width: 100%;
+   width: 450px;
+   text-decoration: none;
+  
+}
+a:hover{
+    text-decoration: underline;
+    text-decoration-color: white;
+}
