@@ -12,6 +12,9 @@
 .h-100{
     background-image: url('src/assets/images/bg1.png');
      background-repeat: no-repeat;
+     background-position: center center;
+     background-attachment: fixed;
+     background-size: cover;
    }
 .container{
     background-color: #ffffff;
@@ -73,6 +76,7 @@ color: #ffffff;
 a{
    width: 100%;
    width: 450px;
+   
    text-decoration: none;
   
 }
@@ -80,3 +84,62 @@ a:hover{
     text-decoration: underline;
     text-decoration-color: white;
 }
+
+@media screen and (max-width: 1050px) {
+    h1{
+        font-size: 30px;
+    }
+    .col-lg-1{
+            width: 40px;
+            margin-left: -20px;
+            
+    }
+    
+    #imgProcessus{
+        width: 30px;
+        height: 30px;
+        
+    }
+    #imgEnSavoirPlus{
+        width: 30px;
+        height: 30px;
+        
+    }
+
+    .div1{
+        margin-left: 5px;
+        padding: 0px;
+    }
+    a{
+        width: 300px;
+        
+    }
+    }
+    @media screen and (max-width: 705px) {
+        h1{
+            font-size: 20px;
+        }
+        .col-lg-1{
+                width: 40px;
+                margin-left: -20px;
+                
+        }
+        
+        #imgProcessus{
+            width: 30px;
+            height: 30px;
+            
+        }
+        #imgEnSavoirPlus{
+            width: 30px;
+            height: 30px;
+            
+        }
+    
+        
+        a{
+            width: 150px;
+            
+        }
+        }
+    
