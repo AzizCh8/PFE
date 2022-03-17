@@ -1,0 +1,31 @@
+
+<img id="simacLogo" src="../assets/images/simacLogo.jpg">
+<div class="container h-90">
+    
+    <div class="row h-90 justify-content-center align-items-center ">
+        
+        <div class="col-lg-4">
+            <div class="text-center mb-5"><h1>Se connecter</h1></div>
+            <!-- Form -->
+            <form [formGroup]="loginForm" class="form-example mt-5" action="" method="post">
+                  
+                <!-- Input fields -->
+                <div class="form-group m-4">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control email" id="email" placeholder="email" formControlName="email" >
+                </div>
+                <div class="form-group m-4">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control password " id="password" placeholder="Password..." formControlName="password">
+                </div>
+                <div class="m-4 text-center">
+                <button type="submit" class="btn btn-primary btn-customized btnLogin">Se connecter</button>
+                </div>
+                <!-- End input fields -->
+                
+            </form>
+            <!-- Form end -->
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+#simacLogo{
+    width: 73px;
+    height: 92px;
+    margin: 10px;
+}
+h1{
+    color: #0778bc;
+    font-size: 40px;
+}
+.email{
+    width: 300px;
+}
+.password{
+    width: 300px;
+}
+
+.btnLogin{
+    width: 150px;
+}
