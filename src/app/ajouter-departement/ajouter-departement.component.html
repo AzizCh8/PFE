@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="wrapper row  justify-content-center align-items-center">
+<div class="col-lg-7 mt-2 ">
+    
+    <form #f="ngForm" (ngSubmit)="onSaveDepartement(f['value'])" class="">
+        <div class="text-center mb-5"><h1>Ajouter Departement</h1></div>
+     
+        
+        
+        <div class="col-10 ">
+            <div class="form-outline ">
+                
+                
+                <input type="text" name="name" id="form3Example2" class="form-control" placeholder="Nom" pattern="[a-z]+ *[A-Za-z]*" [(ngModel)]='departement.name' required #NameField="ngModel" ngModel/>
+            
+                <div *ngIf="NameField.touched">
+                    <p *ngIf="this.depName.includes(departement.name)">Departement existant!</p>
+                    <p *ngIf="NameField.errors?.['required']">Nom est un champ obligatoire!</p>
+                    <p *ngIf="NameField.errors?.['pattern']">Le nom doit débuter avec une minuscule</p>
+                  </div>
+            </div>
+        </div>
+        
+    
+        <div class="col text-center mt-5">
+        
+        <button type="submit" class="btn btnMdp mb-4 btnSubmit">Ajouter Departement</button>
+        </div>
+    
+    </form>
+</div>
+<div class="liste d-flex justify-content-end" >
+    <img src="../assets/images/list.png" id="imgList" alt="">
+    <a href="/roles" id="linkList">Liste des departements</a>
+</div>
+</div>
+
+<app-footer></app-footer>

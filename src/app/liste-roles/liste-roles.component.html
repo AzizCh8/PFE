@@ -1,0 +1,74 @@
+
+<app-header></app-header>
+<div class="container" >
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+                
+				<form #f="ngForm" (ngSubmit)="onChercher(f['value'])">
+					<div class="main-search-input-wrap">
+						<div class="main-search-input fl-wrap">
+							<div class="main-search-input-item"> <input type="text" id="key" name="key" placeholder="Search Roles..." ngModel> </div> <button class="main-search-button" type="submit"> Search</button>
+						</div>
+					</div>
+				</form>	
+				<table class="table user-list" *ngIf="roles">
+					<thead>
+						<tr>
+							
+							<th class="text-center"><span>Nom</span></th>
+							<th class="text-center"><span>Description</span></th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let u of roles._embedded.roles">
+							<td>
+								
+								<a href="#" class="user-link">{{u.name}} </a>
+								
+							</td>
+							<td class="text-center">
+								<span class="label label-default">{{u.description}}</span>
+							</td>
+							
+							<td style="width: 20%;">
+								<a class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a class="table-link" (click)="onEditRole(u)">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a class="table-link danger" (click)="onDeleteRole(u)">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<ul *ngIf="totalPages" class="pagination pull-right">
+				<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+				<li [ngClass]="i==currentPage?'active':''" *ngFor="let p of pages; let i=index" >
+					<a (click)="onPageRole(i)">{{i}}</a>
+				</li>
+				
+				<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+				
+			</ul>
+			
+		</div>
+	</div>
+	
+</div>
+</div>

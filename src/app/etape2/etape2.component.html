@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class=" vertical-center align-items-center col-lg-12">
+<div class="wrapper vertical-center align-items-center" >
+
+
+  <div class="center ">
+    <h1>Choisir signataire</h1>
+    <form #f="ngForm" class=" d-flex justify-content-center" (ngSubmit)="send(f['value'])">
+      <div>
+        <div class="form-check" *ngFor="let u of users">
+          <label class="form-check-label" for="blankCheckbox">{{u.first_name}} {{u.last_name}}</label>
+          <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" name="user" ngModel (change)="addUser(u.username)" aria-label="...">
+        </div>
+    </div>
+    
+
+    <div class="d-flex center justify-content-center " >
+      <button type="submit" class="btnMdp">
+      valider
+    </button>
+    </div>
+    </form>
+
+    
+  </div>
+  
+</div>
+</div>
+<app-footer></app-footer>

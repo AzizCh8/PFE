@@ -1,0 +1,108 @@
+<app-header></app-header>
+<div class="container" >
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+                
+				<form #f="ngForm" (ngSubmit)="onChercher(f['value'])">
+					<div class="main-search-input-wrap">
+						<div class="main-search-input fl-wrap">
+							<div class="main-search-input-item"> <input type="text" id="key" name="key" placeholder="Search Processus..." ngModel> </div> <button class="main-search-button" type="submit"> Search</button>
+						</div>
+					</div>
+				</form>	
+				<table class="table user-list" *ngIf="processus">
+					<thead>
+						<tr>
+							
+							<th class="text-center" ><span>Nom</span></th>
+                            <th class="text-center FileInitial"><span>File</span></th>
+							<th class="text-center"><span>Final File</span></th>
+							<th class="text-center signataires"><span>Signataire</span></th>
+							<th class="text-center"><span>Status</span></th>
+							<th class="text-center"><span>Date d'émission</span></th>
+
+							<th >&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let u of processus;let index=index">
+							<td>
+								
+								
+								<span class="user-link text-center" style="color: white;">{{u.name_processus}}</span>
+							</td>
+                            <td class="FileInitial">
+								
+								
+								<span class="user-link text-center " style="color: white;" (click)="downloadFile(u.initialFile.name)">
+									<a class="link" data-tooltip="Cliquer pour télécharger"> 
+										{{u.initialFile.name}}
+									</a>
+								</span>
+							</td>
+
+							<td>
+								
+								
+								<span class="user-link text-center " style="color: white;" *ngIf="u.finalFile" (click)="downloadFile('signed'+u.initialFile.name)">
+								
+									<a class="link" data-tooltip="Cliquer pour télécharger"> 
+										signed{{u.initialFile.name}}
+									</a>
+								</span>
+							</td>
+
+							
+							<td>
+								
+								<span class="user-link text-center signataires" *ngFor="let s of u.signataires"  style="color: white;">{{s.first_name}} {{s.last_name}}</span>
+							</td>
+							<td>
+								
+								
+								<span class="user-link text-center" style="color: white;">{{u.status}}</span>
+
+							</td>
+							<td>
+								
+								
+								<span class="user-link text-center" style="color: white;">{{u.emission_date}}</span>
+
+							</td>
+							
+							<td style="width: 5%;">
+								<a class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="export d-flex justify-content-between" >
+				<button class="btnMdp" (click)="download()">Export as csv</button>
+				<button class="btnMdp" (click)="exportAsExcelFile()">Export as excel</button>
+			</div>
+			
+			<ul *ngIf="totalPages" class="pagination pull-right">
+				<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+				<li [ngClass]="i==currentPage?'active':''" *ngFor="let p of pages; let i=index" >
+					<a (click)="onPageProcessus(i)">{{i}}</a>
+				</li>
+				
+				<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+				
+			</ul>
+			
+		</div>
+	</div>
+	
+</div>
+</div>
+

@@ -19,25 +19,30 @@
 							<th><span>User</span></th>
 							<th class="text-center"><span>Nom</span></th>
 							<th class="text-center"><span>Prénom</span></th>
-							<th><span>Email</span></th>
+							<th class="text-center"><span>Email</span></th>
+							<th class="text-center"><span>Departement</span></th>
 							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let u of users._embedded.users">
+						<tr *ngFor="let u of users">
 							<td>
 								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-								<a href="#" class="user-link">{{u.name}}</a>
-								<span class="user-subhead">{{u.role}}</span>
+								<a href="#" class="user-link" style="color: white;">{{u.first_name}} {{u.last_name}}</a>
+								<span class="data user-subhead" style="color: #B1D4E0;">{{u.role_id}}</span>
 							</td>
 							<td class="text-center">
-								<span class="label label-default">{{u.last_name}}</span>
+								<span class="data label label-default" style="color: white;">{{u.last_name}}</span>
 							</td>
 							<td class="text-center">
-								<span class="label label-default">{{u.first_name}}</span>
+								<span class="data label label-default" style="color: white;">{{u.first_name}}</span>
 							</td>
-							<td>
-								<a href="#">{{u.email}}</a>
+							<td class="text-center">
+								<span class=" data label label-default" style="color: white;">{{u.username}}</span>
+							</td>
+							
+							<td class="text-center">
+								<span class="data label label-default" style="color: white;">{{u.id_dep.name}}</span>
 							</td>
 							<td style="width: 20%;">
 								<a class="table-link">

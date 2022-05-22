@@ -13,6 +13,7 @@ body{margin-top:20px;}
 	font-size: 1.25em;
 	padding-top: 3px;
 	margin-left: 60px;
+	color: white;
 }
 .user-list tbody td .user-subhead {
 	font-size: 0.875em;
@@ -33,7 +34,7 @@ body{margin-top:20px;}
 }
 .table tbody > tr > td {
 	font-size: 0.875em;
-	background: #f5f5f5;
+	background: #0a599e;
 	border-top: 10px solid #fff;
 	vertical-align: middle;
 	padding: 12px 8px;
@@ -47,7 +48,13 @@ body{margin-top:20px;}
 	display: inline-block;
 	padding: 0 5px;
 	padding-bottom: 5px;
-	font-weight: normal;
+	font-family: 'Montserrat';
+	font-weight: 600;
+}
+
+td span{
+	font-family: 'Montserrat';
+	font-size: 14px;
 }
 .table thead > tr > th > a span {
 	color: #344644;
@@ -235,7 +242,7 @@ li:hover{
 }
 
 .main-search-button {
-    background: #4DB7FE
+    background: #0a599e
 }
 
 .main-search-button {
@@ -259,6 +266,10 @@ li:hover{
 
 :focus {
     outline: 0
+}
+
+data{
+	color: white;
 }
 
 @media only screen and (max-width: 768px) {

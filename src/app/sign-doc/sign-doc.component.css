@@ -1,0 +1,132 @@
+.wrapper{
+    border: 2px #0a599e solid;
+    width: 60vw;
+    margin: 0 auto;
+    height: 80vh;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+
+.center{
+    margin: 0 auto;
+}
+.center h1 {
+    font-size: 2em;
+  border-left: 5px solid #0a599e;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-left: 50px;
+  margin-top: 50px;
+    
+  }
+
+
+
+		.btnMdp {
+			border: none;
+			width: 80px;
+			height: 30px;
+			border: 2px solid #0a599e;
+			margin: auto;
+			
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			background: none;
+			color: #0a599e;
+			text-transform: uppercase;
+			font-family: "Montserrat";
+            font-weight: 500;
+			-webkit-transform: perspective(1px) translateZ(0);
+			transform: perspective(1px) translateZ(0);
+			position: relative;
+			-webkit-transition-property: color;
+			transition-property: color;
+			-webkit-transition-duration: 0.3s;
+			transition-duration: 0.3s; }
+			.btnMdp i {
+			  margin-left: 10px;
+			  -webkit-transform: translateZ(0);
+			  transform: translateZ(0);
+			  -webkit-transition-duration: 0.1s;
+			  transition-duration: 0.1s;
+			  -webkit-transition-property: transform;
+			  transition-property: transform;
+			  -webkit-transition-timing-function: ease-out;
+			  transition-timing-function: ease-out; }
+			  .btnMdp:before {
+			  content: "";
+			  position: absolute;
+			  z-index: -1;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background: #0a599e;
+			  
+			  -webkit-transform: scaleX(0);
+			  transform: scaleX(0);
+			  -webkit-transform-origin: 0 50%;
+			  transform-origin: 0 50%;
+			  -webkit-transition-property: transform;
+			  transition-property: transform;
+			  -webkit-transition-duration: 0.3s;
+			  transition-duration: 0.3s;
+			  -webkit-transition-timing-function: ease-out;
+			  transition-timing-function: ease-out; }
+			  .btnMdp:hover {
+				color: white;
+			  border-color: transparent; }
+			  .btnMdp:hover:before {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1); }
+			  .btnMdp:hover i {
+				-webkit-transform: translateX(4px);
+				transform: translateX(4px); }
+
+
+  .upload{
+
+    width: 120px;
+    height: 40px;
+    background-color: #3f05ce;
+    color: white;
+   
+    }
+
+    #btnDiv{
+        margin-top: 50px;
+    }
+
+    #fileDiv{
+        margin-top: 50px;
+    }
+
+
+
+    .list{
+        margin: 0 10px;
+		margin-bottom: 0;
+		
+        color: #0a599e;
+        font-family: 'Montserrat';
+        font-weight: 600;
+      }
+      .list:hover{
+      cursor: pointer;
+      background-color: #f5f5f0;
+      
+      }
+
+	  .liste1{
+		margin-top: 5px;
+		margin-bottom: 0;
+	}

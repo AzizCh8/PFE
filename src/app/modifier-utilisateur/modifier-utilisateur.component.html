@@ -9,51 +9,66 @@
         <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="form3Example1">Prénom:</label>
-                <input type="text" name="first_name" id="form3Example1" class="form-control" placeholder="Prénom" ngModel [(ngModel)]="currentUser.first_name"/>
-                
+                <input type="text" name="first_name" id="form3Example1" class="form-control" placeholder="Prénom" required ngModel [(ngModel)]="currentUser.first_name" #FirstnameField="ngModel"/>
+                <div *ngIf="FirstnameField.touched" class="errorNomPrénom">
+                    <p *ngIf="FirstnameField.errors?.['required']">Prénom est un champ obligatoire!</p>
+                  </div>
             </div>
         </div>
         <div class="col">
             <div class="form-outline">
                 <label class="form-label" for="form3Example2">Nom:</label>
-                <input type="text" name="last_name" id="form3Example2" class="form-control" placeholder="Nom" ngModel [(ngModel)]="currentUser.last_name" />
-            
+                <input type="text" name="last_name" id="form3Example2" class="form-control" placeholder="Nom" required ngModel [(ngModel)]="currentUser.last_name" #LastnameField="ngModel"/>
+                <div *ngIf="LastnameField.touched">
+                    <p *ngIf="LastnameField.errors?.['required']">Nom est un champ obligatoire!</p>
+                  </div>
             </div>
         </div>
         </div>
 
-        <div class="form-outline mb-4 ">
-            <label class="form-label" for="form3Example3">Nom Complet:</label>
-            <input type="text" name="name" id="form3Example3" class="form-control" placeholder="Nom + Prénom" ngModel [(ngModel)]="currentUser.name"/>
-            
-        </div>
+       
   
     <!-- Email input -->
         <div class="form-outline mb-4 ">
             <label class="form-label" for="form3Example3">adresse:</label>
-            <input type="email" name="email" id="form3Example3" class="form-control" placeholder="FoulenFouleni@gmail.com" ngModel [(ngModel)]="currentUser.email"/>
-            
+            <input type="email" name="username" id="form3Example3" class="form-control" placeholder="FoulenFouleni@gmail.com" required pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}" ngModel [(ngModel)]="currentUser.username" #emailAddressField="ngModel"/>
+            <div *ngIf="emailAddressField.touched">
+                <p *ngIf="emailAddressField.errors?.['required']">Email est un champ obligatoire!</p>
+                <p *ngIf="emailAddressField.errors?.['pattern']">This is not a valid Email!!!</p>
+              </div>
         </div>
   
     
         <div class="col-12 ">
             <label class="form-label" for="inlineFormSelectPref">Role:</label>
-            <select class="select form-control" name="role" ngModel [(ngModel)]="currentUser.role">
-                <option value="1">Utilisateur</option>
-                <option value="2">Admin</option>
+            <select class="select form-control" name="role_id" ngModel [(ngModel)]="currentUser.role_id">
+                <option [ngValue]="roles.USER">Utilisateur</option>
+                <option [ngValue]="roles.ADMIN">Admin</option>
                 
             </select>
         </div>
 
-        <div class="col-6 mb-4 ">
-            <label class="form-label" for="form3Example3">Mot de passe:</label>
-            <input type="password" id="form3Example3" class="form-control" placeholder="Mot de passe" name="password" ngModel [(ngModel)]="currentUser.password"/>
+        <div class="col-12 ">
+            <label class="form-label" for="inlineFormSelectPref">Departement:</label>
+            <select class="select form-control" name="id_dep" required  ngModel [(ngModel)]="currentUser.id_dep">
+                <option *ngFor="let dep of departements" [ngValue]="dep">{{dep.name}}</option>
+                
+
+                
+
             
+            </select>
+        </div>
+
+        <div class="col-6 mb-4 ">
+            <label class="form-label" for="form3Example4">Mot de passe:</label>
+            <input type="password" id="form3Example4" class="form-control" placeholder="Mot de passe" name="password" ngModel [(ngModel)]="currentPassword"/>
+            <button type="button"  id="btnPass" (click)="generer()">Générer mot de passe</button>
         </div>
     
         <div class="col text-center">
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary mb-4 btnSubmit">Modifier Utilisateur</button>
+        <button type="submit" class="btn btn-primary btnMdp mb-4 btnSubmit">Modifier Utilisateur</button>
         </div>
     
     </form>

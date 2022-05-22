@@ -14,7 +14,6 @@
     width: 58px;
     height: 65px;
     
-    margin-right: 10px;
 }
 
 div {
@@ -78,7 +77,9 @@ p a:hover::after {
     opacity: 0.2
 }
 
-
+.pointer{
+    cursor: pointer;
+}
 
 h1 {
     font-size: 48px
@@ -205,7 +206,7 @@ section {
 
 .button {
     display: inline-block;
-    background: #0e8ce4;
+    background: #0a599e;
     border-radius: 5px;
     height: 48px;
     -webkit-transition: all 200ms ease;
@@ -345,7 +346,7 @@ section {
 }
 
 .standard_dropdown li a:hover {
-    color: #0e8ce4
+    color: #8e8ed6
 }
 
 .standard_dropdown li a i {
@@ -496,12 +497,6 @@ section {
 }
 
 
-.main_nav_menu ul li a{
-    color: white;
-}
-.main_nav_menu ul li a:hover{
-    color: black;
-}
 
 .custom_dropdown {
     width: calc((100% - 50px) * 0.399);
@@ -630,10 +625,17 @@ select option {
     width: 100%;
     border-top: solid 1px #f2f2f2;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    background: #FFFFFF;
+    background: #0a599e;
     
     
     
+}
+.main_nav_menu ul li a{
+    color: white;
+    
+}
+.main_nav_menu ul li a:hover{
+    color: black;
 }
 
 .header.scrolled .main_nav {
@@ -655,7 +657,7 @@ select option {
 .cat_menu_container {
     width: 293px;
     height: 100%;
-    background: #0e8ce4;
+    background: #0a599e;
     padding-left: 35px;
     cursor: pointer;
     z-index: 1
@@ -701,7 +703,7 @@ select option {
     top: 100%;
     left: 0;
     min-width: 100%;
-    background: #FFFFFF;
+    background: #0778bc;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
     -webkit-transition: opacity 0.3s ease;
     -moz-transition: opacity 0.3s ease;
@@ -773,7 +775,7 @@ select option {
     visibility: hidden;
     opacity: 0;
     width: 100%;
-    background: #FFFFFF;
+    background: #0a599e;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1)
 }
 
@@ -841,7 +843,7 @@ select option {
 
 .page_menu_content {
     height: 0px;
-    background: #0e8ce4;
+    background: #0a599e;
     padding-left: 15px;
     padding-right: 15px;
     overflow: hidden
@@ -867,7 +869,7 @@ select option {
     display: block;
     position: relative;
     border-bottom: solid 1px rgba(255, 255, 255, 0.1);
-    vertical-align: middle
+    
 }
 
 .page_menu_item>a {
@@ -959,7 +961,7 @@ select option {
 }
 
 .menu_contact_item a:hover {
-    color: #8a8a8a
+    color: #0a599e
 }
 
 .menu_contact_item:last-child {
@@ -978,8 +980,10 @@ select option {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 1300px !important
+        max-width: 1300px !important;
+        
     }
+    
 }
 
 @media only screen and (max-width: 1199px) {
@@ -1001,18 +1005,20 @@ select option {
         text-align: left
     }
 
-    .main_nav {
-        margin-top: 56px
-    }
+    
 
     .main_nav_menu {
         display: none
     }
 
     
+   
+    #imgSimacLogo{
+        display: none;
+    }
 
     .main_nav_content {
-        background: #0e8ce4
+        background: #0a599e
     }
 
     .menu_trigger_container {
@@ -1200,4 +1206,16 @@ select option {
         padding-left: 25px;
         padding-right: 25px
     }
+}
+
+.username{
+    font-weight: 600;
+}
+
+.sous-item{
+    font-family: 'Montserrat';
+}
+
+.homeItem{
+    font-family: 'Montserrat';
 }

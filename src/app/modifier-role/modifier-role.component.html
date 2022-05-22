@@ -1,0 +1,47 @@
+<!--
+<app-header></app-header>
+<div class="wrapper row  justify-content-center align-items-center">
+<div class="col-lg-7 mt-2">
+    
+    <form #f="ngForm" (ngSubmit)="onUpdateRole(f['value'])" >
+        <div class="text-center mb-5"><h1>Modifier Role</h1></div>
+     2 column grid layout with text inputs for the first and last names 
+        
+        
+        <div class="col-5">
+            <div class="form-outline">
+                <label class="form-label" for="form3Example2">Nom:</label>
+                <input type="text" name="name" id="form3Example2" class="form-control" placeholder="Nom" pattern="[A-Z][a-z]+" required ngModel [(ngModel)]="currentRole.name" #NameField="ngModel" />
+                <div *ngIf="NameField.touched">
+                    <p *ngIf="NameField.errors?.['required']">Nom est un champ obligatoire!</p>
+                    <p *ngIf="NameField.errors?.['pattern']">Le nom doit débuter avec une majuscule </p>
+                  </div>
+            </div>
+        </div>
+        <div class="col mt-4">
+            <div class="form-outline">
+                <label class="form-label" for="form3Example1">Description:</label>
+                <input type="text" name="description" id="form3Example1" class="form-control" placeholder="Description"  required ngModel [(ngModel)]="currentRole.description" #DescriptionField="ngModel" />
+                <div *ngIf="DescriptionField.touched" class="errorNomPrénom">
+                    <p *ngIf="DescriptionField.errors?.['required']">Description est un champ obligatoire!</p>
+                   
+                  </div>
+            </div>
+        </div>
+        
+    
+        <div class="col text-center mt-5">
+         Submit button 
+        <button type="submit" class="btn btn-primary mb-4 btnSubmit">Ajouter Role</button>
+        </div>
+    
+    </form>
+</div>
+<div class="liste d-flex justify-content-end" >
+    <img src="../assets/images/list.png" id="imgList" alt="">
+    <a href="/roles" id="linkList">Liste des roles</a>
+</div>
+</div>
+
+<app-footer></app-footer>
+-->

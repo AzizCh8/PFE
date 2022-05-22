@@ -10,7 +10,7 @@
     position: absolute;
    }
 .h-100{
-    background-image: url('src/assets/images/bg1.png');
+    background-image: url('src/assets/images/bag3.png');
      background-repeat: no-repeat;
      background-position: center center;
      background-attachment: fixed;
@@ -67,10 +67,10 @@
 }
 
 h1{
-font-size: 45px;
+font-size: 40px;
 color: #ffffff;
-
-
+font-family: 'Montserrat';
+font-weight:500;
 
 }
 a{

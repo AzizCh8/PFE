@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class=" vertical-center align-items-center col-lg-12">
+    <div class="wrapper vertical-center align-items-center" >
+    
+    
+      <div class="center ">
+        <h1>Signer Document</h1>
+        <div class="d-flex justify-content-center" id="fileDiv" *ngFor="let ff of files">
+            <div class="list liste1" (click)="viewFile()">{{ff}}</div>
+            <div class="list liste1" (click)="downloadFile(ff)"  >telecharger file</div>
+            
+            <div class="list "><button class="btnMdp " (click)="sign(ff)">
+              Sign
+            </button>
+          </div>
+        </div>
+       
+        
+      </div>
+      
+    </div>
+    </div>
+
+
+<app-footer></app-footer>
