@@ -13,7 +13,7 @@
                             
                             <div class="top_bar_user" >
                                 <div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
-                                <div><a href="#">{{user.first_name}} {{user.last_name}}</a></div>
+                                <div><a href="/home">{{user.first_name}} {{user.last_name}}</a></div>
                                 <div class="signOut_icon"><img id="imgSignout" src="../assets/images/sign-out.png" alt=""></div>
                                 <div><a class="pointer" (click)="onLogout()">Sign out</a></div>
                             </div>
@@ -36,10 +36,13 @@
                                     <li><a href="/home" class="homeItem">Home<i class="fas fa-chevron-down"></i></a></li>
                                     <li class="hassubs" > <a href="#" class="homeItem">Services</a>
                                         <ul style="background-color: #0a599e; ">
-                                            <li class="sous-item" > <a href="/etape1">Créer un processus<i class="fas fa-chevron-down"></i></a>
+                                            <li class="sous-item" > <a href="/etape1">Lancer une procédure de signature<i class="fas fa-chevron-down"></i></a>
                                                 
                                             </li>
-                                            <li class="sous-item" > <a href="/listeProcessus">Liste des processus<i class="fas fa-chevron-down"></i></a>
+                                            <li class="sous-item" > <a href="/listeProcessus">Liste des procédures de signature<i class="fas fa-chevron-down"></i></a>
+                                                
+                                            </li>
+                                            <li class="sous-item" > <a href="/sign">Fichiers à signer<i class="fas fa-chevron-down"></i></a>
                                                 
                                             </li>
                                             <li class="sous-item" *ngIf="this.auth.isAdmin()"> <a href="/addUser">Ajouter utilisateur<i class="fas fa-chevron-down"></i></a>
@@ -62,7 +65,7 @@
                                     </li>
                                     
                                    
-                                    <li><a href="blog.html" class="homeItem">A propos<i class="hfas fa-chevron-down"></i></a></li>
+                                    <li><a href="/aPropos" class="homeItem">A propos<i class="hfas fa-chevron-down"></i></a></li>
                                     <li><a href="/contact" class="homeItem">Contact<i class=" fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </div> <!-- Menu Trigger -->

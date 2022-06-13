@@ -199,3 +199,11 @@
       -o-box-shadow: none; }
   
      }
+     .uploader-status{
+       padding: 0;
+       margin-bottom: 35px;
+     }
+
+     .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+      stroke: white;
+  }

@@ -21,6 +21,7 @@ export class AjouterDepartementComponent implements OnInit {
   departements!:any[];
   depName:any[]=new Array();
   departement:Departement=new Departement();
+  disabled:any=false;
   constructor(private depService:DepartementServiceService,private router:Router) { }
 
   ngOnInit(): void {
@@ -52,5 +53,18 @@ export class AjouterDepartementComponent implements OnInit {
       console.log(err);
     })
     
+  }
+
+
+  check(name){
+    if(this.depName.includes(name))
+    {
+      this.disabled=true;
+      return true;
+    }
+    else
+    {this.disabled=false;
+    return false;
+    }
   }
 }

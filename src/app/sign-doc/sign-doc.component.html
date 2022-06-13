@@ -7,15 +7,17 @@
       <div class="center ">
         <h1>Signer Document</h1>
         <div class="d-flex justify-content-center" id="fileDiv" *ngFor="let ff of files">
-            <div class="list liste1" (click)="viewFile()">{{ff}}</div>
-            <div class="list liste1" (click)="downloadFile(ff)"  >telecharger file</div>
+            <div class="list liste1" (click)="viewFile(ff)">{{ff}}</div>
+            <div class="list liste1" (click)="downloadFile(ff)">telecharger file</div>
             
             <div class="list "><button class="btnMdp " (click)="sign(ff)">
               Sign
             </button>
           </div>
         </div>
-       
+        <div class="uploader-status">
+          <mat-spinner *ngIf="showSpinner" [diameter]="50" style="margin:0 auto;" ></mat-spinner>
+      </div> 
         
       </div>
       

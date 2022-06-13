@@ -3,7 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { FileService } from '../services/file/file.service';
 import {saveAs} from 'file-saver';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
 
 @Component({
   selector: 'app-etape1',
@@ -49,29 +57,6 @@ export class Etape1Component implements OnInit {
 }
 
 
-
-
-upload(): void {
-  this.progress = 0;
-  this.currentFile = this.selectedFiles.item(0);
-  this.fileService.upload(this.currentFile).subscribe(
-    event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        this.message = event.body.message;
-        this.fileInfos = this.fileService.getFiles();
-      }
-    },
-    err => {
-      this.progress = 0;
-      this.message = 'Could not upload the file!';
-      this.currentFile = undefined;
-    });
-  this.selectedFiles = undefined;
-}
-
-
   //function to upload files
   onUploadFiles():void{
     console.log(this.isDisabled)
@@ -95,7 +80,6 @@ upload(): void {
         event=>{
           this.uploaded=true;
           if (event.type === HttpEventType.UploadProgress) {
-            console.log("jkkk1");
             this.progress = Math.round(100 * event.loaded / event.total);
           } else if (event instanceof HttpResponse) {
             this.message = event.body.message;
@@ -103,7 +87,11 @@ upload(): void {
           }
         },
         err=>{
-          console.log("err");
+          this.progress = Math.round(0);
+          this.uploaded=false;
+          swalWithBootstrapButtons.fire("Fichier déja signé !",'Veuillez voir la liste des processus',
+      'error'
+    )
         }
       );
       }
@@ -111,20 +99,7 @@ upload(): void {
   
 
 
-  //function to download files
-  onDownloadFile(f:any):void{
-      this.fileService.download(f.name).subscribe(
-        event=>{
-          console.log("jhhhhh");
-          console.log(event);
-          
-        },
-        err=>{
-          console.log("err");
-        }
-      );
-      
-    }
+ 
 
     
    
@@ -141,7 +116,8 @@ upload(): void {
               let downloadLink = document.createElement('a');
               downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
               if (filename)
-                  downloadLink.setAttribute('inline', filename.name);
+                  {downloadLink.setAttribute('inline', filename.name);
+                  downloadLink.setAttribute("target", "_blank");}
               document.body.appendChild(downloadLink);
               downloadLink.click();
           }

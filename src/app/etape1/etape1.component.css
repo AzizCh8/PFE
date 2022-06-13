@@ -293,3 +293,11 @@ path.two {
       font-weight: 500;
       margin-top: 40px;
     }
+
+    .cont{
+      background-image: url('src/assets/images/etape1.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
+    }

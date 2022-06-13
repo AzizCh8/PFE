@@ -27,6 +27,7 @@ export class SignDocComponent implements OnInit {
   fileInfos: Observable<any>;
   f:any;
   files!:any[];
+  showSpinner:boolean=false;
   constructor(private fileService:FileService,private http:HttpClient,private router:Router,private utilisateurs:ListeUtilisateursService) { }
 
   ngOnInit(): void {
@@ -43,41 +44,17 @@ export class SignDocComponent implements OnInit {
       })
         
     })
-    this.fileService.findByProcessus(1).subscribe(data=>{
-      this.f=data;
-      console.log(this.f);
-    })
+    
     
 
   }
 
   sign(filename1:string){
-    
-    console.log(this.f);  
+    this.showSpinner=true;
     console.log("idUser: "+this.idUser);
-    let timerInterval
-Swal.fire({
-  title: 'Auto close alert!',
-  html: 'I will close in <b></b> milliseconds.',
-  timer: 1000,
-  timerProgressBar: true,
-  didOpen: () => {
-    Swal.showLoading()
-    var b:any = Swal.getHtmlContainer().querySelector('b')
-    timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-})
+
     this.fileService.sign(filename1).subscribe(event=>{
+      this.showSpinner=false;
       swalWithBootstrapButtons.fire("fichier signé avec succès !",
       "",
   'success'
@@ -97,41 +74,45 @@ Swal.fire({
     
   }
   
-  downloadFile(filename:string): void{
 
-    const baseUrl = 'http://localhost:8040/file/download/'+filename;
+  
+  viewFile(filename: any): void{
+
+    const baseUrl = 'http://localhost:8040/file/view/'+filename;
     
     this.http.get(baseUrl ,{responseType: 'blob'}).subscribe(
         (response: any) =>{
-          console.log(this.f);
+          console.log(filename);
             let dataType = response.type;
             let binaryData = [];
             binaryData.push(response);
             let downloadLink = document.createElement('a');
             downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-            if (this.f)
-                downloadLink.setAttribute('download', filename);
+            if (filename)
+                {downloadLink.setAttribute('inline', filename);
+                downloadLink.setAttribute("target", "_blank");}
             document.body.appendChild(downloadLink);
             downloadLink.click();
         }
     )
   }
+    
+  
 
-  viewFile(): void{
+  downloadFile(filename: any): void{
 
-
-    const baseUrl = 'http://localhost:8040/file/view/'+this.f.name;
+    const baseUrl = 'http://localhost:8040/file/downloadd/'+filename;
     
     this.http.get(baseUrl ,{responseType: 'blob'}).subscribe(
         (response: any) =>{
-          console.log(this.f);
+          console.log(filename);
             let dataType = response.type;
             let binaryData = [];
             binaryData.push(response);
             let downloadLink = document.createElement('a');
             downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, {type: dataType}));
-            if (this.f)
-                downloadLink.setAttribute('inline', this.f.name);
+            if (filename)
+                downloadLink.setAttribute('download', filename);
             document.body.appendChild(downloadLink);
             downloadLink.click();
         }

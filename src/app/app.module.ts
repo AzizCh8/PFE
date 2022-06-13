@@ -30,7 +30,10 @@ import { Etape2Component } from './etape2/etape2.component';
 import { SignDocComponent } from './sign-doc/sign-doc.component';
 import { ListeProcessusComponent } from './liste-processus/liste-processus.component';
 import { writeXLSX } from 'xlsx';
-
+import { AProposComponent } from './a-propos/a-propos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +56,8 @@ import { writeXLSX } from 'xlsx';
     Etape1Component,
     Etape2Component,
     SignDocComponent,
-    ListeProcessusComponent
+    ListeProcessusComponent,
+    AProposComponent
     
     
   ],
@@ -66,6 +70,9 @@ import { writeXLSX } from 'xlsx';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatProgressSpinnerModule
    
   
 

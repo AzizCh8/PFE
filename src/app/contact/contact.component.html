@@ -1,21 +1,25 @@
 <app-header></app-header>
 <div class="wrapper">
     <div class="inner">
-        <form action="">
+        <form #f="ngForm"  (ngSubmit)="sendMessage(f['value'])">
             <h3>Contactez-nous</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <div class="uploader-status">
+                <mat-spinner *ngIf="showSpinner" [diameter]="50" style="margin:0 auto; stroke: white;" ></mat-spinner>
+            </div>  
             <label class="form-group">
-                <input type="text" class="form-control"  required>
+                <input type="text" name="user" class="form-control" ngModel required>
                 <span>Nom</span>
                 <span class="border"></span>
             </label>
+            
             <label class="form-group">
-                <input type="text" class="form-control"  required>
+                <input type="text" name="username" class="form-control" ngModel required>
                 <span for="">Email</span>
                 <span class="border"></span>
             </label>
             <label class="form-group" >
-                <textarea name="" id="" class="form-control" required></textarea>
+                <textarea name="" id="" name="message" ngModel class="form-control" required></textarea>
                 <span for="">Message</span>
                 <span class="border"></span>
             </label>

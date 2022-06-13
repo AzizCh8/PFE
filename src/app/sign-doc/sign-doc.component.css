@@ -130,3 +130,12 @@
 		margin-top: 5px;
 		margin-bottom: 0;
 	}
+
+	.uploader-status{
+		padding: 0;
+		margin-top: 35px;
+	  }
+ 
+	  .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+	   stroke: #0a599e;
+   }

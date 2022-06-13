@@ -80,6 +80,11 @@ a{
    text-decoration: none;
   
 }
+
+.etape1{
+    width: 550px;
+    
+}
 a:hover{
     text-decoration: underline;
     text-decoration-color: white;

@@ -8,7 +8,7 @@
 				<form #f="ngForm" (ngSubmit)="onChercher(f['value'])">
 					<div class="main-search-input-wrap">
 						<div class="main-search-input fl-wrap">
-							<div class="main-search-input-item"> <input type="text" id="key" name="key" placeholder="Search Processus..." ngModel> </div> <button class="main-search-button" type="submit"> Search</button>
+							<div class="main-search-input-item"> <input type="text" id="key" name="key" placeholder="Chercher procédure..." ngModel> </div> <button class="main-search-button" type="submit">Chercher</button>
 						</div>
 					</div>
 				</form>	
@@ -18,7 +18,7 @@
 							
 							<th class="text-center" ><span>Nom</span></th>
                             <th class="text-center FileInitial"><span>File</span></th>
-							<th class="text-center"><span>Final File</span></th>
+							<th class="text-center FileFinal"><span>Final File</span></th>
 							<th class="text-center signataires"><span>Signataire</span></th>
 							<th class="text-center"><span>Status</span></th>
 							<th class="text-center"><span>Date d'émission</span></th>
@@ -37,18 +37,18 @@
 								
 								
 								<span class="user-link text-center " style="color: white;" (click)="downloadFile(u.initialFile.name)">
-									<a class="link" data-tooltip="Cliquer pour télécharger"> 
+									<a class="link" data-tooltip="télécharger"> 
 										{{u.initialFile.name}}
 									</a>
 								</span>
 							</td>
 
-							<td>
+							<td class="FileFinal">
 								
 								
 								<span class="user-link text-center " style="color: white;" *ngIf="u.finalFile" (click)="downloadFile('signed'+u.initialFile.name)">
 								
-									<a class="link" data-tooltip="Cliquer pour télécharger"> 
+									<a class="link" data-tooltip="télécharger"> 
 										signed{{u.initialFile.name}}
 									</a>
 								</span>
@@ -73,7 +73,7 @@
 							</td>
 							
 							<td style="width: 5%;">
-								<a class="table-link">
+								<a class="table-link" (click)="afficher(u.id_processus)">
 									<span class="fa-stack">
 										<i class="fa fa-square fa-stack-2x"></i>
 										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
@@ -85,9 +85,8 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="export d-flex justify-content-between" >
-				<button class="btnMdp" (click)="download()">Export as csv</button>
-				<button class="btnMdp" (click)="exportAsExcelFile()">Export as excel</button>
+			<div class="export d-flex flex-row" >
+				<button class="btnMdp" (click)="export()">Exporter La liste</button>
 			</div>
 			
 			<ul *ngIf="totalPages" class="pagination pull-right">

@@ -21,9 +21,7 @@ export class FileService {
 //   }
 
 
-findByProcessus(id:number){
-  return this.http.get(this.host+"/file/fileByProcessus?id="+id);
-}
+
 downloadd(filename:String):Observable<HttpEvent<Blob>>{
   return this.http.get(this.host+"/file/downloadd/"+filename,{
     reportProgress:true,
@@ -32,14 +30,7 @@ downloadd(filename:String):Observable<HttpEvent<Blob>>{
   })
 }
 
-  //function to download files
-  download(filename:String):Observable<HttpEvent<Blob>>{
-    return this.http.get(this.host+"/file/download/"+filename,{
-      reportProgress:true,
-      observe:'events',
-      responseType:'blob'
-    })
-  }
+ 
 
   sign(filename:string): Observable<any> 
   { 
@@ -62,17 +53,7 @@ upload(file: File): Observable<HttpEvent<any>> {
 }
 
 
-onUpload(file: File): Observable<HttpEvent<any>> {
-  const formData: FormData = new FormData();
-  formData.append('files', file);
-  localStorage.setItem('file',file.name);
-  
-  return this.http.post<String[]>(this.host+"/file/uploaddd/"+this.user,formData,{
-        reportProgress:true,
-        observe:'events'
-  });
-  
-}
+
 
 viewFile(filename:any):Observable<HttpEvent<Blob>>
 {

@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class=" vertical-center align-items-center col-lg-12">
+<div class="cont vertical-center align-items-center col-lg-12">
 <div class="wrapper vertical-center align-items-center" [ngClass]="selectedFiles?.length>5?'height1':'height2'">
   <h1>Charger document</h1>
   <div *ngIf="currentFile" class="progress ">
@@ -17,7 +17,7 @@
 
 <div class="d-flex lab  mb-2">
 <label class="btn btn-default">
-  <input type="file" multiple="multiple" (change)="selectFile($event)" />
+  <input type="file" id="fileInput" multiple="multiple" (change)="selectFile($event)" />
   
   
 </label>
@@ -36,7 +36,7 @@
 <div class="d-flex justify-content-center" id="error" [innerText]="textt"></div>
 <div class="d-flex justify-content-around mt-5">
 <button class="btnMdp"  (click)="onUploadFiles()">
-  Upload
+  Charger
 </button>
 
 

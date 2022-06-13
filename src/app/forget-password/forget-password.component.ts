@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Email } from '../models/email/email';
 import { User } from '../models/user/user';
 import { AuthentificationService } from '../services/authentification/authentification.service';
 import { EmailService } from '../services/EmailService/email.service';
 import { ListeUtilisateursService } from '../services/listeUtilisateursService/liste-utilisateurs.service';
+
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
 
 @Component({
   selector: 'app-forget-password',
@@ -24,6 +33,8 @@ export class ForgetPasswordComponent implements OnInit {
   public keyword:String="";
   email:Email=new Email();
   public newUser:User=new User();
+  showSpinner:boolean=false;
+
   ngOnInit(): void {
   }
 
@@ -42,6 +53,7 @@ export class ForgetPasswordComponent implements OnInit {
   
 
   chercherUtilisateurs(form:any){
+    this.showSpinner=true;
     var email=form.username;
     this.utilisateurs.getUsersByKeyword1(email,0,5).subscribe((data:any)=>{
         this.users=data._embedded.users[0];
@@ -75,7 +87,10 @@ export class ForgetPasswordComponent implements OnInit {
         this.utilisateurs.register1(this.newUser).subscribe(()=>{
             
           this.emailService.enviarEmail(this.email).subscribe(()=>{
-            alert("Mise à jour effectuée avec succés!");
+            this.showSpinner=false;
+            swalWithBootstrapButtons.fire("Mot de passe modifié avec succés!",'',
+            'success'
+          )
             this.router.navigateByUrl("/login");
 
            },err=>{

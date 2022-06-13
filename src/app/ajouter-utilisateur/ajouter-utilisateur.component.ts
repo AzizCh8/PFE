@@ -33,6 +33,7 @@ export class AjouterUtilisateurComponent implements OnInit {
   ok:number=0;
   username:any[]=new Array();
   departements!:any[];
+  disabled:any=false;
   constructor(private auth:AuthentificationService, private utilisateurs:ListeUtilisateursService,private router:Router,private emailService:EmailService,private depService:DepartementServiceService,private activatedRoute:ActivatedRoute) { 
     
   }
@@ -117,6 +118,19 @@ generer()
       console.log("err");
     })
     
+    }
+
+
+    check(email){
+      if(this.username.includes(email))
+      {
+        this.disabled=true;
+        return true;
+      }
+      else
+      {this.disabled=false;
+      return false;
+      }
     }
     
   

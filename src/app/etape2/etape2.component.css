@@ -322,3 +322,22 @@ path.two {
     .btnMdp:hover i {
     -webkit-transform: translateX(4px);
     transform: translateX(4px); }
+
+
+    .uploader-status{
+      padding: 0;
+      margin-bottom: 35px;
+    }
+
+    .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+     stroke: white;
+ }
+
+
+ .cont{
+  background-image: url('src/assets/images/etape1.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}

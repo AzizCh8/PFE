@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AProposComponent } from './a-propos/a-propos.component';
 import { AjouterDepartementComponent } from './ajouter-departement/ajouter-departement.component';
 import { AjouterRoleComponent } from './ajouter-role/ajouter-role.component';
 import { AjouterUtilisateurComponent } from './ajouter-utilisateur/ajouter-utilisateur.component';
@@ -41,10 +42,11 @@ const routes: Routes = [
   {path:'addDepartement',component:AjouterDepartementComponent,canActivate:[RoleGuard]},
   {path:'departements',component:ListeDepartementsComponent,canActivate:[RoleGuard]},
   {path:'editDepartement/:id',component:ModifierDepartementComponent,canActivate:[RoleGuard]},
-  {path:'etape1',component:Etape1Component},
+  {path:'etape1',component:Etape1Component,canActivate:[AuthGuard]},
   {path:'etape2',component:Etape2Component},
   {path:'sign',component:SignDocComponent,canActivate:[AuthGuard]},
-  {path:'listeProcessus',component:ListeProcessusComponent}
+  {path:'listeProcessus',component:ListeProcessusComponent,canActivate:[AuthGuard]},
+  {path:'aPropos',component:AProposComponent,canActivate:[AuthGuard]}
   
   
 ];

@@ -8,8 +8,16 @@ import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import * as fileSaver from 'file-saver';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { ProcessusUserService } from '../services/processusUserService/processus-user.service';
 
-
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 
@@ -33,8 +41,10 @@ export class ListeProcessusComponent implements OnInit {
   str:string="";
   finalVide:any;
   okk:any;
+  list: any;
+  s: string="";
   
-  constructor(private http:HttpClient, private processusService:ProcessusService,private router:Router,private auth:AuthentificationService) { }
+  constructor(private http:HttpClient, private processusService:ProcessusService,private router:Router,private auth:AuthentificationService,private processusUser:ProcessusUserService) { }
 
   ngOnInit(): void {
     this.onPageProcessus(0);
@@ -258,6 +268,26 @@ private saveAsExcelFile(buffer: any, fileName: string): void {
 }
 
 
+export()
+{
+  Swal.fire({
+    title: 'Choisir le format de fichier',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Fichier Excel',
+    denyButtonText: `Fichier CSV`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      this.exportAsExcelFile();
+      Swal.fire('Liste des processus telechargée sur votre machine!', '', 'success');
+    } else if (result.isDenied) {
+      this.download();
+      Swal.fire('Liste des processus telechargée sur votre machine ', '', 'success')
+    }
+  })
+}
+
 
 
 
@@ -283,7 +313,25 @@ downloadFile(filename: any): void{
   )
 }
 
+afficher(id_processus:any){
+  this.processusUser.getProcessus(id_processus).subscribe((data:any)=>{
+    this.list=data;
+    this.s="";
+    for(var i=0;i<this.list.length;i++)
+    {if(this.list[i].signature_date)
+        this.s+="           "+this.list[i].user.first_name+""+this.list[i].user.last_name+" : "+this.list[i].signature_date+"       |    ";
+        else
+        this.s+="           "+this.list[i].user.first_name+""+this.list[i].user.last_name+" : pas encore     |      ";
 
+    }
+    Swal.fire(
+      'Date des signatures',
+      this.s
+      
+      
+    )
+  })
+}
 
 
 }

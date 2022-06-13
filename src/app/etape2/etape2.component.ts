@@ -33,7 +33,7 @@ export class Etape2Component implements OnInit {
   public users:any;
   selectedUsers: Array<string>=new Array;
   to:string="";
-  
+ 
   ngOnInit(): void {
     this.utilisateurs.getUtilisateurs().subscribe((data:any)=>{
       
@@ -56,7 +56,7 @@ export class Etape2Component implements OnInit {
 
   send(data:any)
   {
-
+    
     console.log(data);
     this.name=localStorage.getItem('file');
     this.renderFile(this.name);
@@ -85,6 +85,7 @@ export class Etape2Component implements OnInit {
       console.log(err);
     })
   }
+  
   swalWithBootstrapButtons.fire('Demandes de signature envoyés!',
   'à :\n'+this.to,
   'success'
